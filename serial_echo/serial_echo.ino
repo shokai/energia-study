@@ -8,6 +8,11 @@ void setup() {
 }
 
 void loop() {
+  while(Serial.available()){
+    Serial.print("echo : ");
+    Serial.write(Serial.read());
+    Serial.println("");
+  }
   digitalWrite(RED_LED, led_stat);
   digitalWrite(GREEN_LED, !led_stat);
   Serial.println(led_stat ? "RED" : "GREEN");
